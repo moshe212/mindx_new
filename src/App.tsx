@@ -8,7 +8,6 @@ import {
   Upload,
   Briefcase,
   UserPlus,
-  Info,
   Zap,
   ChevronRight,
   PieChart,
@@ -73,7 +72,7 @@ const App = () => {
   const [isAgentModalOpen, setIsAgentModalOpen] = useState(false);
   const [fluentChatEnabled, setFluentChatEnabled] = useState(true);
   const [semanticSearchEnabled, setSemanticSearchEnabled] = useState(true);
-  const [suggestedQuestions, setSuggestedQuestions] = useState([]);
+  const [suggestedQuestions, setSuggestedQuestions] = useState<string[]>([]);
 
   const [conversations, setConversations] = useState<Conversation[]>([
     { id: 1, title: "שיחה על נתוני מכירות", date: "28/04/25", active: true },
@@ -600,7 +599,7 @@ const App = () => {
     ]);
   };
 
-  const handleAgentChange = (agent) => {
+  const handleAgentChange = (agent: string) => {
     if (agent === "add") {
       setIsAgentModalOpen(true);
     } else {
