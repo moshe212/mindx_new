@@ -9,18 +9,15 @@ import {
   Briefcase,
   UserPlus,
   Info,
-  Search,
   Zap,
   ChevronRight,
   PieChart,
-  LineChart,
   TrendingUp,
   ArrowUp,
   ArrowDown,
   Percent,
   DollarSign,
   Clock,
-  Target,
   Calendar,
 } from "lucide-react";
 import "./App.css";
@@ -67,15 +64,9 @@ interface PieChartData {
 const App = () => {
   const [selectedTab, setSelectedTab] = useState<string>("chat");
   const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedAdvisor, setSelectedAdvisor] = useState<string>("");
-  const [currentStep, setCurrentStep] = useState<number>(1);
-  const [wizardAnswers, setWizardAnswers] = useState<WizardAnswers>({});
-  const [isProcessingRequest, setIsProcessingRequest] =
-    useState<boolean>(false);
 
-  const messageRef = useRef<HTMLInputElement>(null);
+  const [wizardAnswers, setWizardAnswers] = useState<WizardAnswers>({});
+
   const [inputValue, setInputValue] = useState("");
   const [selectedMode, setSelectedMode] = useState("dataRepository");
   const [selectedAgent, setSelectedAgent] = useState("free");
@@ -83,7 +74,7 @@ const App = () => {
   const [fluentChatEnabled, setFluentChatEnabled] = useState(true);
   const [semanticSearchEnabled, setSemanticSearchEnabled] = useState(true);
   const [suggestedQuestions, setSuggestedQuestions] = useState([]);
-  const [tokenCount, setTokenCount] = useState(0);
+
   const [conversations, setConversations] = useState<Conversation[]>([
     { id: 1, title: "שיחה על נתוני מכירות", date: "28/04/25", active: true },
     { id: 2, title: "ניתוח דוח כספי", date: "26/04/25", active: false },
