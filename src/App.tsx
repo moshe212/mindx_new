@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   MessageCircle,
   BarChart,
@@ -666,14 +666,6 @@ const App = () => {
     );
   };
 
-  // פונקציות חדשות עבור מסך האנליזות
-  const getFormattedValue = (value: number, metric: string): string => {
-    if (metric === "percent") return `${value}%`;
-    if (metric === "currency") return `₪${value.toLocaleString()}`;
-    if (metric === "time") return `${value} ימים`;
-    return value.toLocaleString();
-  };
-
   const getChangeColor = (change: number): string => {
     if (change > 0) return "text-green-400";
     if (change < 0) return "text-red-400";
@@ -684,19 +676,6 @@ const App = () => {
     if (change > 0) return <ArrowUp size={16} className="text-green-400" />;
     if (change < 0) return <ArrowDown size={16} className="text-red-400" />;
     return null;
-  };
-
-  const getMetricIcon = (metric: string) => {
-    switch (metric) {
-      case "percent":
-        return <Percent size={18} />;
-      case "currency":
-        return <DollarSign size={18} />;
-      case "time":
-        return <Clock size={18} />;
-      default:
-        return <Info size={18} />;
-    }
   };
 
   return (
